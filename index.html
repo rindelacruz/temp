@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sorry</title>
+    <style>
+        body {
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        img {
+            width: 300px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        button {
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 5px;
+        }
+
+        .continue-button {
+            background-color: #ff6b6b;
+            color: white;
+        }
+
+        .continue-button:hover {
+            background-color: #e05757;
+        }
+
+        .yes-button {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .yes-button:hover {
+            background-color: #45a049;
+        }
+
+        .no-button {
+            background-color: #ff6b6b;
+            color: white;
+        }
+
+        .no-button:hover {
+            background-color: #e05757;
+        }
+
+        #intro,
+        .crying-container,
+        .third-apology,
+        .final-apology {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Show intro on load */
+        #intro {
+            display: flex;
+        }
+
+        .crying-text,
+        .third-text,
+        .final-text {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .response-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .final-flower {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- First part: Hi gif + Continue -->
+    <div id="intro">
+        <img src="hi.gif" alt="Hi Gif">
+        <button class="continue-button" onclick="showCrying()">Continue</button>
+    </div>
+
+    <!-- Second part: Crying image + text + yes/no buttons -->
+    <div class="crying-container" id="cryingPart">
+        <img src="crying.jpg" alt="Crying Image">
+        <div class="crying-text">Still mad po, madam?</div>
+        <div class="response-buttons">
+            <button class="yes-button" onclick="respondYes()">Yes</button>
+            <button class="no-button" onclick="respondNo()">No</button>
+        </div>
+    </div>
+
+    <!-- Third part: Panda cry gif + heartfelt message -->
+    <div class="third-apology" id="thirdApology">
+        <img src="crying 2.gif" alt="Crying Panda">
+        <div class="third-text">
+            Sorry po talaga, I'll do better po!<br>
+            Please tell me po, how can I make bawi po sayo?
+        </div>
+    </div>
+
+    <!-- Final part: Dance gif + final message + continue -->
+    <div class="final-apology" id="finalApology">
+        <img src="dance.gif" alt="Dance Image">
+        <div class="final-text">
+            Sorry po talaga, I'll do better po!<br>
+            I'll promise po di ko na po paiinitin ulo mo. Basta bati na tayo ha?
+        </div>
+        <button class="continue-button" onclick="finalContinue()">Continue</button>
+    </div>
+
+    <!-- Flower image and sweet closing message -->
+    <div class="final-flower" id="finalFlower">
+        <img src="flower.jpg" alt="Flower" style="width: 200px; margin-bottom: 20px;">
+        <div class="final-text">🌸 Peace offering po. Bati na tayo ha? 🌸</div>
+    </div>
+
+    <script>
+        function showCrying() {
+            document.getElementById('intro').style.display = 'none';
+            document.getElementById('cryingPart').style.display = 'flex';
+        }
+
+        function respondYes() {
+            document.getElementById('cryingPart').style.display = 'none';
+            document.getElementById('thirdApology').style.display = 'flex';
+        }
+
+        function respondNo() {
+            document.getElementById('cryingPart').style.display = 'none';
+            document.getElementById('finalApology').style.display = 'flex';
+        }
+
+        function finalContinue() {
+            document.getElementById('finalApology').style.display = 'none';
+            document.getElementById('finalFlower').style.display = 'flex';
+        }
+    </script>
+
+</body>
+
+</html>
